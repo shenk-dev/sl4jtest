@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{DEFAULT} %X{user_id} [%t] %-5p %c{36} - %m%n"/>
+        </Console>
+        <File name="file" fileName="E:\test.log">
+            <PatternLayout
+                    pattern="%d %-5p (%F:%L) - %m%n"/>
+        </File>
+        <ElasticSearch name="ES" ip="127.0.0.1" port="9300" cluster="local_es"></ElasticSearch>
+    </appenders>
+    <loggers>
+        <root level="info">
+            <!--<appender-ref ref="Console" />-->
+            <appender-ref ref="ES" />
+        </root>
+    </loggers>
+</configuration>
