@@ -16,6 +16,10 @@ public class EsManager extends AbstractManager {
         super(loggerContext, name);
     }
 
+    public static EsManager getEsManager(String ip, String port, String culster) {
+        return null;
+    }
+
     public void sendEvent(LogEvent event, Layout layout) {
 
     }
