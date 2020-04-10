@@ -1,0 +1,7 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-name: local_es
+      cluster-nodes: 127.0.0.1:9300
+log:
+  path: E:\\abc

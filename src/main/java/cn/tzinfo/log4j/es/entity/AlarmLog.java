@@ -12,13 +12,13 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @Document(indexName = "log", type = "alarmlog")
 public class AlarmLog extends BaseLog {
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String alarmId;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String alarmCode;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String alarmDesc;
 
     public String getAlarmId() {

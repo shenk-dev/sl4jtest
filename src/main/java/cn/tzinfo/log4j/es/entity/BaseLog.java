@@ -16,10 +16,10 @@ public class BaseLog {
     @Id
     private String id;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String clientCode;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String deviceCode;
 
     @Field(type = FieldType.Text)

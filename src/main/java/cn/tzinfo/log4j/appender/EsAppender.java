@@ -1,6 +1,9 @@
 package cn.tzinfo.log4j.appender;
 
+import cn.tzinfo.log4j.SpringBeanUtil;
 import cn.tzinfo.log4j.es.EsManager;
+import cn.tzinfo.log4j.es.entity.AlarmLog;
+import cn.tzinfo.log4j.es.repositroy.AlarmLogRepository;
 import org.apache.logging.log4j.core.*;
 import org.apache.logging.log4j.core.appender.AbstractAppender;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
@@ -9,11 +12,13 @@ import org.apache.logging.log4j.core.config.plugins.PluginElement;
 import org.apache.logging.log4j.core.config.plugins.PluginFactory;
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
 import org.apache.logging.log4j.core.filter.ThresholdFilter;
+import org.apache.logging.log4j.core.impl.MutableLogEvent;
 import org.apache.logging.log4j.core.layout.HtmlLayout;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 import org.apache.logging.log4j.core.util.Booleans;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @Author:shenk
@@ -62,6 +67,18 @@ public class EsAppender extends AbstractAppender {
 
     @Override
     public void append(LogEvent event) {
-        esManager.sendEvent(event, getLayout());
+//        AlarmLog alarmLog = new AlarmLog();
+//        alarmLog.setAlarmCode("10001");
+//        alarmLog.setAlarmId("123");
+//        alarmLog.setAlarmDesc("high temperature");
+//        alarmLog.setDeviceCode("AO-1007");
+//        alarmLog.setDate(new Date());
+//        alarmLog.setMessage("message");
+//        AlarmLogRepository alarmLogRepository = SpringBeanUtil.getBean(AlarmLogRepository.class);
+//        System.out.println(alarmLogRepository);
+//        alarmLogRepository.save(alarmLog);
+        MutableLogEvent mutableLogEvent = (MutableLogEvent) event;
+        System.out.println(mutableLogEvent.getFormattedMessage());
+        System.out.println(mutableLogEvent.getMessage());
     }
 }
