@@ -44,4 +44,9 @@ public class AlarmLog extends BaseLog {
     public void setAlarmDesc(String alarmDesc) {
         this.alarmDesc = alarmDesc;
     }
+
+    @Override
+    public String toString() {
+        return "i'm alarm log";
+    }
 }

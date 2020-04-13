@@ -67,18 +67,22 @@ public class EsAppender extends AbstractAppender {
 
     @Override
     public void append(LogEvent event) {
-//        AlarmLog alarmLog = new AlarmLog();
-//        alarmLog.setAlarmCode("10001");
-//        alarmLog.setAlarmId("123");
-//        alarmLog.setAlarmDesc("high temperature");
-//        alarmLog.setDeviceCode("AO-1007");
-//        alarmLog.setDate(new Date());
-//        alarmLog.setMessage("message");
-//        AlarmLogRepository alarmLogRepository = SpringBeanUtil.getBean(AlarmLogRepository.class);
-//        System.out.println(alarmLogRepository);
-//        alarmLogRepository.save(alarmLog);
-        MutableLogEvent mutableLogEvent = (MutableLogEvent) event;
-        System.out.println(mutableLogEvent.getFormattedMessage());
-        System.out.println(mutableLogEvent.getMessage());
+        String msg = event.getMessage().getFormattedMessage();
+        Throwable throwable = event.getThrown();
+
+        if(throwable != null) {
+            StringBuilder sb = new StringBuilder();
+            //get stack trace
+            sb.append(throwable).append("\n");
+            StackTraceElement[] trace = throwable.getStackTrace();
+            for (StackTraceElement traceElement : trace) {
+                sb.append("\tat ").append(traceElement).append("\n");
+            }
+            System.out.println(sb.toString());
+            throwable.getSuppressed();
+            throwable.getCause();
+        }
+
+        esManager.sendEvent(event, getLayout());
     }
 }

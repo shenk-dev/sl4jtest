@@ -6,11 +6,11 @@
             <PatternLayout
                     pattern="%d{DEFAULT} [%t] %-5p %c{36} - %m%n"/>
         </Console>
-        <File name="file" fileName="${logPath}/log.txt">
+        <File name="File" fileName="E:\abc\log.txt">
             <PatternLayout
                     pattern="%d %-5p (%F:%L) - %m%n"/>
         </File>
-        <ElasticSearch name="ES" ip="127.0.0.1" port="9300" cluster="local_es">
+        <ElasticSearch name="Es" ip="127.0.0.1" port="9300" cluster="local_es">
             <PatternLayout
                     pattern="%d{DEFAULT} %X{user_id} [%t] %-5p %c{36} - %m%n"/>
         </ElasticSearch>
@@ -20,7 +20,8 @@
             <appender-ref ref="Console" />
         </root>
         <logger name="cn.tzinfo.log4j" level="info" additivity="false">
-            <appender-ref ref="file" />
+            <appender-ref ref="Console" />
+            <appender-ref ref="Es" />
         </logger>
         <!--<logger name="cn.tzinfo.log4j.Test" level="info" additivity="false">-->
             <!--<appender-ref ref="Console" />-->
