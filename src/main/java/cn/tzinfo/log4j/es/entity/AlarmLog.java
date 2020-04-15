@@ -21,6 +21,9 @@ public class AlarmLog extends BaseLog {
     @Field(type = FieldType.Text)
     private String alarmDesc;
 
+    @Field(type = FieldType.Text)
+    private String user;
+
     public String getAlarmId() {
         return alarmId;
     }
@@ -43,6 +46,14 @@ public class AlarmLog extends BaseLog {
 
     public void setAlarmDesc(String alarmDesc) {
         this.alarmDesc = alarmDesc;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     @Override

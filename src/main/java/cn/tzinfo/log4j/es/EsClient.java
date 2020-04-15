@@ -34,6 +34,7 @@ public class EsClient {
         log.setDeviceCode("A0001");
         log.setAlarmId("10001");
         log.setAlarmCode("A01");
+        log.setUser("shenk");
         String str = new Gson().toJson(log);
         Map<String, String> map = JSONUtil.fromJsonStr(str, Map.class);
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost", 9200, "http")));

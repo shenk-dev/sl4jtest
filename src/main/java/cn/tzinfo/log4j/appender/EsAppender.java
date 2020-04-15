@@ -67,6 +67,7 @@ public class EsAppender extends AbstractAppender {
 
     @Override
     public void append(LogEvent event) {
+        System.out.println(this);
         String msg = event.getMessage().getFormattedMessage();
         Throwable throwable = event.getThrown();
 
@@ -83,6 +84,11 @@ public class EsAppender extends AbstractAppender {
             throwable.getCause();
         }
 
-        esManager.sendEvent(event, getLayout());
+        //esManager.sendEvent(event, getLayout());
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "@" + Integer.toHexString(hashCode());
     }
 }
