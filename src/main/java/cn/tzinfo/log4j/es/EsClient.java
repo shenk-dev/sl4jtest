@@ -39,7 +39,7 @@ public class EsClient {
         Map<String, String> map = JSONUtil.fromJsonStr(str, Map.class);
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost", 9200, "http")));
 
-        IndexRequest indexRequest = new IndexRequest("log","alarmlog").source(str, XContentType.JSON);
+        IndexRequest indexRequest = new IndexRequest("log", "alarmlog").source(str, XContentType.JSON);
 
         client.index(indexRequest, RequestOptions.DEFAULT);
 

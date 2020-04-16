@@ -17,15 +17,15 @@
                     </RollingFile>
                 </Route>
                 <!-- This route is chosen if ThreadContext has no value for key ROUTINGKEY. -->
-                <Route key="$${ctx:ROUTINGKEY}">
-                    <RollingFile name="Rolling-default" fileName="logs/default.log"
-                                 filePattern="./logs/${date:yyyy-MM}/default-%d{yyyy-MM-dd}-%i.log.gz">
+                <Route key="$${ctx:DEVICECODE}">
+                    <RollingFile name="Rolling-default" fileName="E:/abc/default.log"
+                                 filePattern="E:/abc/default-%d{yyyy-MM-dd}-%i.log.gz">
                         <PatternLayout>
                             <pattern>%d{ISO8601} [%t] %p %c{3} - %m%n</pattern>
                         </PatternLayout>
                         <Policies>
-                            <TimeBasedTriggeringPolicy interval="6" modulate="true"/>
-                            <SizeBasedTriggeringPolicy size="10 MB"/>
+                            <TimeBasedTriggeringPolicy interval="6" modulate="true" />
+                            <SizeBasedTriggeringPolicy size="10 KB" />
                         </Policies>
                     </RollingFile>
                 </Route>
