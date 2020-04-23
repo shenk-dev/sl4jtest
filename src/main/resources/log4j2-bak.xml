@@ -28,7 +28,7 @@
             <appender-ref ref="Console" />
         </root>
         <logger name="cn.tzinfo.log4j" level="info" additivity="false">
-            <!--<appender-ref ref="Console" />-->
+            <appender-ref ref="Console" />
             <appender-ref ref="RollingFile" />
         </logger>
         <!--<logger name="cn.tzinfo.log4j.Test" level="info" additivity="false">-->
